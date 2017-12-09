@@ -1,0 +1,10 @@
+package edu.fa.model;
+
+public class Student {
+
+	private String name;
+	private String location;
+	
+	
+
+}
