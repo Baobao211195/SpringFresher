@@ -31,4 +31,11 @@ public class Student {
 		this.location = location;
 	}
 
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", location=" + location + "]";
+	}
+	
+	
+
 }
