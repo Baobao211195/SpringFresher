@@ -7,11 +7,7 @@
 	
 	
 	<bean name="studentService" class="edu.fa.service.StudentServiceImpl">
-		<!-- map with name setter (setStudentRepository())
-			this property call setStudentRepository 
-			ref = name of studentRepository above 
-			Summary (inject studentRepository into studentService use setter injection)
-			-->
-		<property name="studentRepositorys" ref="studentRepository"></property>
+		<!-- Name property mapping with StudentRepository studentRepository in constructor of StudentServiceImpl-->
+		<constructor-arg name="studentRepository" ref="studentRepository"></constructor-arg>
 	</bean>
 </beans>

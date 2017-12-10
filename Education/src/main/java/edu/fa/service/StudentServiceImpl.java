@@ -7,20 +7,21 @@ import edu.fa.repository.StudentRepository;
 
 public class StudentServiceImpl implements StudentService {
 	
-	// setter injection
+
 	private StudentRepository studentRepository ;
 	
-
-	public StudentRepository getStudentRepository() {
-		return studentRepository;
+	public StudentServiceImpl() {
 	}
 
-	// setter injection
-	// map with property in bean StudentService
-	public void setStudentRepositorys(StudentRepository studentRepository) {
-		System.out.println("Mapping with property in context.xml --> setter injection");
+	/**
+	 * @param studentRepository mapping with name of constructor-arg tag in bean
+	 */
+	public StudentServiceImpl(StudentRepository studentRepository) {
+		super();
+		System.out.println("Contructor injection");
 		this.studentRepository = studentRepository;
 	}
+
 
 	/* (non-Javadoc)
 	 * @see edu.fa.service.StudentService#getAllStudent()
