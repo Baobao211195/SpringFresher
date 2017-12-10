@@ -1,20 +1,22 @@
 package edu.fa;
 
-import java.util.List;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import edu.fa.model.Student;
 import edu.fa.service.StudentService;
-import edu.fa.service.StudentServiceImpl;
 
 public class EducationApp {
 	
 	public static void main(String[] args) {
-		StudentService studentService = new StudentServiceImpl();
 		
+		// load file context
+		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
 		
-		List<Student> studentLst = studentService.getAllStudent();
-		
-		System.out.println(studentLst);
+		// get Bean
+		// look up name studentService in context.xml file 
+		// StudentService.class is parent class with class="edu.fa.service.StudentServiceImpl" in context.xml
+		StudentService service = context.getBean("studentService", StudentService.class);
+		System.out.println(service.getAllStudent().size());
 	}
 
 }
