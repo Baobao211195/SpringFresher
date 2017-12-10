@@ -3,6 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!-- 	define bean -->
-	<bean name="studentService" class="edu.fa.service.StudentServiceImpl"></bean>
+	<bean name="studentRepository" class="edu.fa.repository.StudentRepositoryImpl"></bean>
+	
+	
+	<bean name="studentService" class="edu.fa.service.StudentServiceImpl">
+		<!-- map with name setter (setStudentRepository())
+			this property call setStudentRepository 
+			ref = name of studentRepository above 
+			Summary (inject studentRepository into studentService use setter injection)
+			-->
+		<property name="studentRepositorys" ref="studentRepository"></property>
+	</bean>
 </beans>
