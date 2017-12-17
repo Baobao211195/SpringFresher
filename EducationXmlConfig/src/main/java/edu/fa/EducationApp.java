@@ -12,10 +12,7 @@ public class EducationApp {
 		// load file context
 		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
 		
-		// get Bean
-		// look up name studentService in context.xml file 
-		// StudentService.class is parent class with class="edu.fa.service.StudentServiceImpl" in context.xml
-		StudentService service = context.getBean("studentService", StudentService.class);
+ 		StudentService service = context.getBean("studentService", StudentService.class);
 		System.out.println(service.getAllStudent().size());
 	}
 
